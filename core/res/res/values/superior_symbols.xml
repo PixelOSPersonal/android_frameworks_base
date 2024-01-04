@@ -1,148 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The SuperiorOS Project
+     Copyright (C)2022-2023 The Superior OS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-     <!-- Device keyhandlers -->
-     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+    <!-- Paths to the libraries that contain device specific key handlers -->
+    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+    </string-array>
 
-     <!-- Package Manager -->
-     <java-symbol type="array" name="config_deviceDisabledComponents" />
-     <java-symbol type="array" name="config_globallyDisabledComponents" />
-     <java-symbol type="array" name="config_forceEnabledComponents" />
+    <!-- Names of the key handler classes -->
+    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+    </string-array>
 
-     <!-- App error dialog -->
-     <java-symbol type="id" name="aerr_copy" />
-     <java-symbol type="string" name="url_copy_success" />
-     <java-symbol type="string" name="url_copy_failed" />
+    <!-- The list of components which should be automatically disabled for a specific device.
+         Note: this MUST not be used to randomly disable components, ask for approval first! -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+    </string-array>
 
-     <!-- Camera -->
-     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
-     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
+    <!-- The list of components which should be automatically disabled for all devices. -->
+    <string-array name="config_globallyDisabledComponents" translatable="false">
+    </string-array>
 
-     <!-- Whether to force enable multi resolution configuration for camera -->
-     <java-symbol type="bool" name="config_forceMultiResolution" />
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false">
+    </string-array>
 
-     <!-- For dynamic default font styles -->
-     <java-symbol type="string" name="config_bodyFontFamily" />
+    <!-- The list of package IDs that are allowed to use aux cameras.
+         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
 
-     <!-- Light / Regular style fonts -->
-     <java-symbol type="string" name="config_lightFontFamily" />
-     <java-symbol type="string" name="config_regularFontFamily" />
+    <!-- The list of package IDs that are not allowed to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
 
-     <!-- Whether to use Richtap vibration -->
-     <java-symbol type="bool" name="config_usesRichtapVibration" />
+    <!-- Whether to force enable multi resolution configuration for camera -->
+    <bool name="config_forceMultiResolution">false</bool>
 
-     <!-- Whether device supports an alt. ambient display -->
-     <java-symbol type="bool" name="config_alt_ambient_display" />
+    <!-- Name of a font family to use as light font. For theming purpose. -->
+    <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
 
-     <!-- Proximity check on screen on -->
-     <java-symbol type="bool" name="config_proximityCheckOnWake" />
+    <!-- Name of a font family to use as regular font. For theming purpose. -->
+    <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-     <!-- Proximity check timeout -->
-     <java-symbol type="integer" name="config_proximityCheckTimeout" />
+    <!-- Whether to use Richtap vibration -->
+    <bool name="config_usesRichtapVibration">false</bool>
 
-     <!-- Proximity check on screen on default -->
-     <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+     <bool name="config_proximityCheckOnWake">false</bool>
+     <integer name="config_proximityCheckTimeout">250</integer>
+     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
-     <!-- Advanced reboot -->
-     <java-symbol type="string" name="reboot_to_recovery_title" />
-     <java-symbol type="string" name="reboot_to_recovery_message" />
-     <java-symbol type="string" name="reboot_to_bootloader_title" />
-     <java-symbol type="string" name="reboot_to_bootloader_message" />
-     <java-symbol type="string" name="reboot_title" />
-     <java-symbol type="string" name="reboot_message" />
-
-     <!-- Global Actions pref list -->
-     <java-symbol type="array" name="custom_config_globalActionsList" />
-
-     <!-- Leds -->
-     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
-    
-    <!-- Settings Restart -->
-    <java-symbol type="string" name="settings_restart_title" />
-    <java-symbol type="string" name="settings_restart_message" />
-
-    <!-- Soft restart dialog -->
-    <java-symbol type="string" name="system_restart_title" />
-    <java-symbol type="string" name="system_restart_message" />
-    
-    <!-- SystemUI restart dialog -->
-    <java-symbol type="string" name="systemui_restart_title" />
-    <java-symbol type="string" name="systemui_restart_message" />
-    
-    <!-- Custom logo color -->
-    <java-symbol type="color" name="logo_accent_color" />
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
     
     <!-- These are system packages exempted from privacy indicator -->
-    <java-symbol type="array" name="config_indicatorExemptedPackageNames" />
+    <string-array name="config_indicatorExemptedPackageNames" translatable="false">
+        <item>com.android.bluetooth</item>
+        <item>com.android.cellbroadcastservice</item>
+        <item>com.android.mms.service</item>
+        <item>com.android.networkstack.tethering</item>
+        <item>com.android.ons</item>
+        <item>com.android.phone</item>
+        <item>com.android.printspooler</item>
+        <item>com.android.providers.telephony</item>
+        <item>com.android.stk</item>
+        <item>com.android.systemui</item>
+        <item>com.google.android.settings.intelligence</item>
+        <item>com.mediatek.ims</item>
+        <item>com.qualcomm.qti.cne</item>
+        <item>com.shannon.imsservice</item>
+        <item>org.pixelexperience.faceunlock</item>
+    </string-array>
     
     <!-- Mock Oplus LinearmotorVibratorService -->
-    <java-symbol type="bool" name="config_mockOplusLinearmotorVibratorService" />
+    <bool name="config_mockOplusLinearmotorVibratorService">false</bool>
     
     <!-- Whether the device supports Smart Pixels -->
-    <java-symbol type="bool" name="config_supportSmartPixels" />
+    <bool name="config_supportSmartPixels">false</bool>
     
-    <!-- Device hardware keys -->
-   <java-symbol type="integer" name="config_deviceHardwareWakeKeys" />
-   
+    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
+       This integer should equal the sum of the corresponding value for each
+       of the following keys present:
+           1 - Home
+           2 - Back
+           4 - Menu
+           8 - Assistant (search)
+          16 - App switch
+          32 - Camera
+          64 - Volume rocker
+       For example, a device with Home, Back and Menu keys would set this
+       config to 7. -->
+       <integer name="config_deviceHardwareWakeKeys">64</integer>
+       
     <!-- Whether to cancel fingerprint operation if not idle -->
-    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
-    
-    <!-- Sensor block -->
-    <java-symbol type="array" name="config_blockPackagesSensorDrain" />
+    <bool name="config_fpCancelIfNotIdle">false</bool>
+
+    <!-- Any package that has one of the package names defined below will be prevented
+       from using specific sensors in order to stop battery drain -->
+    <string-array name="config_blockPackagesSensorDrain">
+        <item>com.whatsapp</item>
+        <item>com.gbwhatsapp</item>
+        <item>com.yowhatsapp</item>
+        <item>com.whatsapp.plus</item>
+        <item>org.telegram.messenger</item>
+        <item>org.telegram.messenger.plus</item>
+        <item>com.netease.cloudmusic</item>
+        <item>fm.xiami.main</item>
+        <item>com.netease.snailread</item>
+        <item>com.baidu.browser.apps</item>
+        <item>org.thunderdog.challegram</item>
+        <item>com.snapchat.android</item>
+        <item>com.facebook.orca</item>
+        <item>com.Slack</item>
+        <item>tugapower.codeaurora.browser</item>
+        <item>org.mozilla.firefox</item>
+        <item>com.android.chrome</item>
+        <item>com.amazon.mShop.android.shopping</item>
+        <item>com.google.android.inputmethod.latin</item>
+        <item>com.google.android.apps.plus</item>
+        <item>com.google.android.apps.maps</item>
+        <item>ru.ok.android</item>
+        <item>com.instagram.android.MainTabActivity</item>
+        <item>com.facebook.orca</item>
+        <item>com.facebook.orca.StartScreenActivity</item>
+        <item>com.spotify.music</item>
+        <item>com.spotify.music.MainActivity</item>
+        <item>com.android.vending</item>
+        <item>com.trtf.blue</item>
+        <item>com.truecaller</item>
+        <item>com.gaana</item>
+        <item>com.facebook.katana.LoginActivity</item>
+    </string-array>
     
     <!-- Ignore post running notifications for selected apps -->
-    <java-symbol type="array" name="config_postNotificationIgnoredApps" />
+    <string-array name="config_postNotificationIgnoredApps" translatable="false">
+    </string-array>
     
+    <!-- Defines the sysfs attribute path used by pocket bridge
+         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
+
     <!-- Pocket Lock -->
-    <java-symbol type="layout" name="pocket_lock_view" />
+    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool>
     
-    <!-- Pocket bridge -->
-    <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
-    <java-symbol type="bool" name="config_pocketModeSupported" />
-    <java-symbol type="bool" name="config_pocketUseLightSensor" />
-    
-    <!-- Pocket Service -->
-    <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
-    <java-symbol type="string" name="config_pocketJudgeVendorProximitySensorName" />
-    
-    <!-- Status bar paddings -->
-    <java-symbol type="dimen" name="status_bar_padding_start" />
-    <java-symbol type="dimen" name="status_bar_padding_end" />
-    <java-symbol type="dimen" name="status_bar_padding_top" />
+    <!-- Defines custom OEM sensor for pocket detection. -->
+    <string name="config_pocketJudgeVendorSensorName"></string>
+    <string name="config_pocketJudgeVendorProximitySensorName"></string>
 
     <!-- Should we listen for fingerprints when the screen is off?  Devices
          with a rear-mounted sensor want this, but certain devices have
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
-    <java-symbol type="bool" name="config_fingerprintWakeAndUnlock" />
+    <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
-     <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
-     <java-symbol type="string" name="config_netflixSpoofModel" />
+    <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
+    <string name="config_netflixSpoofModel" translatable="false"></string>
 
-     <!-- Whether Pixel props is enabled -->
-     <java-symbol type="bool" name="config_enablePixelProps" />
+    <!-- Build properties from a GMS certified device -->
+    <string-array name="config_certifiedBuildProperties" translatable="false">
+        <!--
+          <item>Build.BRAND</item>
+          <item>Build.MANUFACTURER</item>
+          <item>Build.ID</item>
+          <item>Build.DEVICE</item>
+          <item>Build.PRODUCT</item>
+          <item>Build.MODEL</item>
+          <item>Build.FINGERPRINT</item>
+          <item>Build.TYPE</item>
+          <item>Build.TAGS</item>
+        -->
+    </string-array>
 
-     <!-- Build properties from a GMS certified device -->
-     <java-symbol type="array" name="config_certifiedBuildProperties" />
-
-    <!-- Health interface -->
-    <java-symbol type="bool" name="config_chargingControlEnabled" />
-    <java-symbol type="integer" name="config_defaultChargingControlMode" />
-    <java-symbol type="integer" name="config_defaultChargingControlStartTime" />
-    <java-symbol type="integer" name="config_defaultChargingControlTargetTime" />
-    <java-symbol type="integer" name="config_defaultChargingControlLimit" />
-    <java-symbol type="drawable" name="ic_charging_control" />
-    <java-symbol type="integer" name="config_chargingControlTimeMargin" />
-    <java-symbol type="integer" name="config_chargingControlBatteryRechargeMargin" />
-    <java-symbol type="string" name="charging_control_notification_channel" />
-    <java-symbol type="string" name="charging_control_notification_title" />
-    <java-symbol type="string" name="charging_control_notification_cancel_once" />
-    <java-symbol type="string" name="charging_control_notification_content_limit" />
-    <java-symbol type="string" name="charging_control_notification_content_limit_reached" />
-    <java-symbol type="string" name="charging_control_notification_content_target" />
-    <java-symbol type="string" name="charging_control_notification_content_target_reached" />
+    <!-- Whether charging control should be enabled by default -->
+    <bool name="config_chargingControlEnabled">false</bool>
+    <!-- Default charging control mode.
+         This integer should be set to:
+         1 - auto - Use the alarm to calculate the time range when to activate charging control
+         2 - custom - Use time range when the device is usually charging for hours
+         3 - limit - Just limit charging -->
+    <integer name="config_defaultChargingControlMode">1</integer>
+    <!-- Default time when charging control is activated.
+         Represented as seconds from midnight (e.g. 79200 == 10pm). -->
+    <integer name="config_defaultChargingControlStartTime">79200</integer>
+    <!-- Default time when battery will be fully charged.
+         Represented as seconds from midnight (e.g. 21600 == 6am). -->
+    <integer name="config_defaultChargingControlTargetTime">21600</integer>
+    <!-- Default charging limit. -->
+    <integer name="config_defaultChargingControlLimit">80</integer>
+    <!-- Considering the fact that the system might have an incorrect estimation of the time to
+         full. Set a time margin to make the device fully charged before the target time arrives.
+         The unit is minutes and the default value is 30 minutes. If you find that it is not enough
+         to make the device to be fully charged at the target time, increase the value
+    -->
+    <integer name="config_chargingControlTimeMargin">30</integer>
+    <!-- For a device that cannot bypass battery when charging stops (that is, the battery current
+         is 0mA when charging stops), the battery will gradually discharge. So we need to make it
+         recharge when the battery level is lower than a threshold. Set this so that the device
+         will be charged between (limit - val) and limit. -->
+    <integer name="config_chargingControlBatteryRechargeMargin">10</integer>
 </resources>
